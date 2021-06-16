@@ -7,6 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script>
+			function confirmDelete(){
+				return confirm("Are you sure,want to delete ?");
+			}
+	
+	</script>
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -15,7 +22,7 @@
 	<h3>View Contacts</h3>
 	
 	
-	<a href="LoadForm">+Add New Contact</a>
+	<a href="loadForm">+Add New Contact</a>
 	<table border="1">
 		<thead>
 			<tr>
@@ -35,7 +42,9 @@
 					<td>${c.contactName}</td>
 					<td>${c.contactNumber}</td>
 					<td>${c.contactEmail}</td>
-					<td><a href="">Edit</a> &nbsp; <a href="">Delete</a>
+					<td><a href="editContact?cid=${c.contactId}">Edit</a> &nbsp;
+					 <a href="deleteContact?cid=${c.contactId}" 
+							 onclick="return confirmDelete()">Delete</a></td>
 
 
 

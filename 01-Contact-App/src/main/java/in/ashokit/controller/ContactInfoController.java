@@ -22,7 +22,7 @@ public class ContactInfoController {
 		this.contactService = contactService;
 	}
 
-	@GetMapping("/loadform")
+	@GetMapping(value = {"/loadForm", "/"})
 	public String loadForm(Model model) {
 		Contact cobj = new Contact();
 		model.addAttribute("contact", cobj);

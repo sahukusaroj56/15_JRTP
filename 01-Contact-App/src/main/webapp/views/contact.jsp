@@ -18,7 +18,7 @@
 	<p>
 		<font color='red'>${errMsg}</font>
 	</p>
-	<form:form action="saveContact" modelAttribute="contact" method="POST">
+	<form:form action="saveContact?contactId=${contact.contactId}" modelAttribute="contact" method="POST">
 		<table>
 			<tr>
 				<td>ContactName</td>
