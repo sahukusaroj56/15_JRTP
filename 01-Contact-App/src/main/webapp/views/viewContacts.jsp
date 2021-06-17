@@ -7,12 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>
-			function confirmDelete(){
-				return confirm("Are you sure,want to delete ?");
-			}
-	
-	</script>
+<script>
+	function confirmDelete() {
+		return confirm("Are you sure,want to delete ?");
+	}
+</script>
 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -20,8 +19,8 @@
 <body>
 
 	<h3>View Contacts</h3>
-	
-	
+
+
 	<a href="loadForm">+Add New Contact</a>
 	<table border="1">
 		<thead>
@@ -42,18 +41,35 @@
 					<td>${c.contactName}</td>
 					<td>${c.contactNumber}</td>
 					<td>${c.contactEmail}</td>
-					<td><a href="editContact?cid=${c.contactId}">Edit</a> &nbsp;
-					 <a href="deleteContact?cid=${c.contactId}" 
-							 onclick="return confirmDelete()">Delete</a></td>
-
-
+					<td><a href="editContact?cid=${c.contactId}">Edit</a> &nbsp; <a
+						href="deleteContact?cid=${c.contactId}"
+						onclick="return confirmDelete()">Delete</a></td>
 
 				</tr>
-
 			</c:forEach>
-
 		</tbody>
 	</table>
+
+	<c:if test="${currPno > 1 }">
+		<a href="viewcontacts?pno=${currPno-1}">Previous</a>
+	</c:if>
+	<c:forEach begin="1" end="${tp}" var="pageNo">
+
+
+		<c:choose>
+			<c:when test="${currPno==pageNo }">
+						${pageNo}
+				</c:when>
+			<c:otherwise>
+				<a href="viewContacts?pno=${pageNo }">${pageNo }</a>
+			</c:otherwise>
+
+		</c:choose>
+
+	 </c:forEach>
+	<c:if test="${currPno < tp }">
+		<a href="viewontacts?pno=${currPno+1}">Next</a>
+	</c:if>
 
 </body>
 </html>

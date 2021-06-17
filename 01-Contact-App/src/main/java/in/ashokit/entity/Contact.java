@@ -30,6 +30,9 @@ public class Contact {
 	@Column(name = "CONTACT_EMAIL")
 	private String contactEmail;
 
+	@Column(name = "ACTIVE_SW")
+	private String activeSw;
+	
 	@CreationTimestamp
 	@Column(name = "CREATED_DATE", updatable = false)
 	private LocalDate createdTime;
@@ -70,6 +73,14 @@ public class Contact {
 		this.contactEmail = contactEmail;
 	}
 
+	public String getActiveSw() {
+		return activeSw;
+	}
+
+	public void setActiveSw(String activeSw) {
+		this.activeSw = activeSw;
+	}
+
 	public LocalDate getCreatedTime() {
 		return createdTime;
 	}
@@ -89,10 +100,12 @@ public class Contact {
 	@Override
 	public String toString() {
 		return "Contact [contactId=" + contactId + ", contactName=" + contactName + ", contactNumber=" + contactNumber
-				+ ", contactEmail=" + contactEmail + ", createdTime=" + createdTime + ", updatedTime=" + updatedTime
-				+ "]";
+				+ ", contactEmail=" + contactEmail + ", activeSw=" + activeSw + ", createdTime=" + createdTime
+				+ ", updatedTime=" + updatedTime + "]";
 	}
 	
 	
+
+		
 
 	}
